@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: live fetches of https://tincan.kids/.well-known/* (2026-07-21)
+host: https://tincan.kids
+notes: >-
+  tincan.kids is a Shopify-hosted storefront. The OIDC/OAuth discovery documents
+  describe the Shopify Customer Accounts authorization surface served on the
+  provider's own domain (manage.tincan.kids); the UCP profile describes the
+  agent-commerce surface. /agents.md (200) mirrors /llms.txt (saved at
+  llms/tin-can-llms.txt).
+documents:
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/openid-configuration
+  status: 200
+  file: tin-can-openid-configuration.json
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: tin-can-oauth-authorization-server.json
+- path: /.well-known/ucp
+  status: 200
+  file: tin-can-ucp.json
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+- path: /llms.txt
+  status: 200
+  file: ../llms/tin-can-llms.txt
+- path: /agents.md
+  status: 200

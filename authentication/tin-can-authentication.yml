@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+source: well-known/tin-can-openid-configuration.json + live probe of
+  https://tincan.kids/api/mcp (2026-07-21)
+docs: null
+notes: >-
+  Tin Can publishes no first-party developer API. Its authenticated surface is
+  the Shopify Customer Accounts OIDC/OAuth 2.0 authorization server served on
+  the provider's own domain (manage.tincan.kids). The Shopify storefront MCP
+  endpoint (https://tincan.kids/api/mcp) answered tools/list without
+  authentication.
+summary:
+  types: [oauth2, openIdConnect]
+  oauth2_flows: [authorizationCode]
+  pkce: [S256]
+  unauthenticated_surfaces: [storefront MCP catalog/cart tools, storefront
+      product/collection JSON endpoints]
+schemes:
+- name: shopifyCustomerAccounts
+  type: openIdConnect
+  openIdConnectUrl: https://tincan.kids/.well-known/openid-configuration
+  issuer: https://shopify.com/authentication/89002967405
+  authorizationUrl: https://manage.tincan.kids/authentication/oauth/authorize
+  tokenUrl: https://manage.tincan.kids/authentication/oauth/token
+  jwks_uri: https://manage.tincan.kids/authentication/.well-known/jwks.json
+  grant_types:
+  - authorization_code
+  - refresh_token
+  - urn:ietf:params:oauth:grant-type:jwt-bearer
+  token_endpoint_auth_methods: [client_secret_basic]
+  code_challenge_methods: [S256]
+  id_token_signing_alg: [RS256]
+  scope_count: 4
+  sources: [well-known/tin-can-openid-configuration.json]

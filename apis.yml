@@ -1,8 +1,29 @@
 aid: tin-can
 name: Tin Can
-description: 'Tin Can is a company surfaced as a portfolio company of greylock and added to the API Evangelist
-  network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting the enrichment pipeline.'
+description: >-
+  Tin Can is a Seattle-based consumer hardware company behind a screen-free,
+  landline-style Wi-Fi phone for kids — no apps, texting, or games, just voice
+  calls with contacts that parents approve through a companion mobile app, with
+  free unlimited calling between Tin Can devices. Backed by Greylock (which led
+  a $12M round in 2025, bringing total funding to roughly $15.5M). Tin Can
+  publishes no first-party developer API; its agent-facing surface is the
+  Shopify-hosted storefront, which exposes a live MCP server, a UCP merchant
+  profile, an llms.txt, and Shopify Customer Accounts OIDC on the tincan.kids
+  domain.
 url: https://raw.githubusercontent.com/api-evangelist/tin-can/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://tincan.kids/cdn/shop/files/tinothy-icon.svg
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,10 +32,15 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Consumer
+- Hardware
+- Telecommunications
+- Voice
+- Kids
+- Phones
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -24,3 +50,34 @@ maintainers:
 common:
 - type: Website
   url: https://tincan.kids/
+- type: Support
+  url: https://faq.tincan.com/
+- type: Blog
+  url: https://tincan.kids/blogs/news
+- type: Login
+  url: https://tincan.kids/account/login
+- type: Pricing
+  url: https://tincan.kids/products/tin-can
+- type: TermsOfService
+  url: https://tincan.kids/policies/terms-of-service
+- type: PrivacyPolicy
+  url: https://tincan.kids/policies/privacy-policy
+- type: MCPServer
+  url: mcp/tin-can-mcp.yml
+- type: LLMsTxt
+  url: llms/tin-can-llms.txt
+- type: WellKnown
+  url: well-known/tin-can-well-known.yml
+- type: OAuthScopes
+  url: scopes/tin-can-scopes.yml
+- type: Authentication
+  url: authentication/tin-can-authentication.yml
+- type: Conformance
+  url: conformance/tin-can-conformance.yml
+- type: DomainSecurity
+  url: security/tin-can-domain-security.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 10
+  pass: local-v1

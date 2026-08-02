@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of https://tincan.kids (2026-07-21)
+notes: >-
+  Standards posture of the Shopify-hosted tincan.kids storefront surface; Tin Can
+  publishes no first-party developer API. Entries assert only what live probes
+  evidenced.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: RFC 8414 authorization-server metadata served at
+    /.well-known/oauth-authorization-server (200); authorization_code +
+    refresh_token grants (well-known/tin-can-oauth-authorization-server.json)
+- id: oidc
+  conforms: true
+  evidence: OIDC discovery document at /.well-known/openid-configuration (200)
+    with openid/email scopes, RS256 id tokens
+- id: rfc8414-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 with issuer,
+    token_endpoint, authorization_endpoint
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported [S256] in OIDC discovery
+- id: ucp
+  conforms: true
+  evidence: UCP merchant profile at /.well-known/ucp (200), versions 2026-04-08 +
+    2026-01-23, dev.ucp.shopping service over MCP transport
+- id: mcp
+  conforms: true
+  evidence: JSON-RPC tools/list answered by https://tincan.kids/api/mcp with 5
+    storefront tools (2026-07-21)
+- id: llms-txt
+  conforms: true
+  evidence: /llms.txt (200) agent instructions, mirrored at /agents.md (saved at
+    llms/tin-can-llms.txt)
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returned 404 (2026-07-21)
