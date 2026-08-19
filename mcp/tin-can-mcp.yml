@@ -7,28 +7,31 @@ server:
   transport: http
   url: https://tincan.kids/api/mcp
   platform: Shopify storefront MCP
-  authentication: none required for catalog/cart tools; Shopify Customer Accounts
-    OAuth exposes a customer-account-mcp-api:full scope for the authenticated
-    customer-account MCP surface (see scopes/tin-can-scopes.yml)
-  notes: >-
-    Shopify-provided storefront MCP server on the provider's own domain. A second
-    UCP MCP endpoint is advertised at https://tincan.kids/api/ucp/mcp per
-    /.well-known/ucp and /llms.txt (returned 422 to a bare unauthenticated
-    tools/list probe on 2026-07-21). Rate-limited per IP; agents should back off
-    on 429.
+  authentication: none required for catalog/cart tools; Shopify Customer Accounts OAuth exposes a customer-account-mcp-api:full
+    scope for the authenticated customer-account MCP surface (see scopes/tin-can-scopes.yml)
+  notes: Shopify-provided storefront MCP server on the provider's own domain. A second UCP MCP endpoint
+    is advertised at https://tincan.kids/api/ucp/mcp per /.well-known/ucp and /llms.txt (returned 422
+    to a bare unauthenticated tools/list probe on 2026-07-21). Rate-limited per IP; agents should back
+    off on 429.
 tools:
 - name: search_catalog
-  description: Search for products from the online store using natural language
-    queries and/or filter criteria; paginated; conforms to the UCP catalog search
-    capability (dev.ucp.shopping.catalog.search).
+  description: Search for products from the online store using natural language queries and/or filter
+    criteria; paginated; conforms to the UCP catalog search capability (dev.ucp.shopping.catalog.search).
 - name: get_cart
-  description: Get the cart including items, shipping options, discount info, and
-    checkout url for a given cart id.
+  description: Get the cart including items, shipping options, discount info, and checkout url for a given
+    cart id.
 - name: update_cart
-  description: Perform updates to a cart, including adding/removing/updating line
-    items, buyer information, shipping details, and discounts.
+  description: Perform updates to a cart, including adding/removing/updating line items, buyer information,
+    shipping details, and discounts.
 - name: search_shop_policies_and_faqs
   description: Get facts about the store's policies, products, or services.
 - name: get_product_details
-  description: Look up a product by ID; pass the options parameter to select a
-    specific variant.
+  description: Look up a product by ID; pass the options parameter to select a specific variant.
+deployment:
+  mode: remote
+  endpoint: https://tincan.kids/api/mcp
+  verified: probed
+  probe: live
+  tools: 5
+  checked: '2026-08-12'
+  source: catalog MCP census
