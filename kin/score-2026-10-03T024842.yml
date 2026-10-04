@@ -1,31 +1,29 @@
-# Kin Score artifact — tin-can — 2026-08-24T064859
+# Kin Score artifact — tin-can — 2026-10-03T024842
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: tin-can
-  schema_version: 0.12.1
-  scored_at: '2026-08-24'
-  run_ts: 2026-08-24T064859
-  composite: 24.8
+  schema_version: 0.23.0
+  scored_at: '2026-10-03'
+  run_ts: 2026-10-03T024842
+  composite: 21.7
   band: emerging
   facets:
-    discoverability: 68.5
+    discoverability: 58.3
     contract_quality: 0.0
-    governance: 18.2
+    contract_governance: 18.2
     operational_transparency: 0.0
     developer_ergonomics: 19.0
-    commercial_clarity: 38.2
-    contract_governance: 18.2
     access_clarity: 38.2
   agent_readiness:
-    score: 18.8
+    score: 13.8
     band: agent-aware
     dimensions:
       spec_presence: false
       agentic_access: false
       reversibility_documented: false
-      mcp_server: verified
-      auth_clarity: true
+      mcp_server: platform
+      auth_clarity: served
       idempotency: false
       error_semantics: false
       openapi_examples: false
@@ -36,11 +34,15 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: served
+      protected_resource_metadata: false
+      dynamic_client_registration: false
+      agentic_commerce: platform
   regulatory:
     applies: true
     regime: Telecommunications
     regime_id: telecommunications
-    score: 58.3
+    score: 35.0
     matched_via: tags
   provenance:
     mcp: first-party
